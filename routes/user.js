@@ -2,20 +2,22 @@ const express = require('express');
 const router = express.Router();
 const data = require('../DB/data')
 
-router.get('/user',(req,res)=>{
+router.route('/user')
+.get((req,res)=>{
     res.status(200).send(data);  
-});
-router.post('/user',(req,res)=>{
+})
+.post((req,res)=>{
     res.send(req.body);
-}) ;  
+});
 
-router.patch('/user/:id',(req,res)=>{
+router.route('/user/:id')
+.patch((req,res)=>{
     //res.send("Updated");
     res.send(`Updated ID: ${req.params.id}`)
    
-}) ; 
+}) 
 
-router.delete('/user/:id',(req,res)=>{
+.delete((req,res)=>{
     //res.send("Deletd");
     res.send(`Delted ID: ${req.params.id}`)
   
